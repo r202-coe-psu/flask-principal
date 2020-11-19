@@ -274,7 +274,7 @@ class BasePermission(object):
         """See ``invert``."""
         return NotPermission(self)
 
-    def require(self, http_exception=None):
+    def require(self, http_exception=403):
         """Create a principal for this permission.
 
         The principal may be used as a context manager, or a decroator.
