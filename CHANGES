@@ -3,6 +3,13 @@ Flask-Principal Changelog
 
 Here you can see the full list of changes between each Flask-Principal release.
 
+Version 0.4.2
+-------------
+
+Released November 20th 2020
+
+- Changed http_exception from None to 403
+
 Version 0.4.1
 -------------
 

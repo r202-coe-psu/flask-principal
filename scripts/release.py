@@ -20,7 +20,7 @@ _date_clean_re = re.compile(r'(\d+)(st|nd|rd|th)')
 
 
 def installed_libraries():
-    return Popen(['pip', 'freeze'], stdout=PIPE).communicate()[0]
+    return Popen(['pip', 'freeze'], stdout=PIPE).communicate()[0].decode('utf-8')
 
 
 def has_library_installed(library):
@@ -38,11 +38,11 @@ def parse_changelog():
 
             version = match.group(1).strip()
 
-            if lineiter.next().count('-') != len(line.strip()):
+            if lineiter.readline().count('-') != len(line.strip()):
                 fail('Invalid hyphen count below version line: %s', line.strip())
 
             while 1:
-                released = lineiter.next().strip()
+                released = lineiter.readline().strip()
                 if released:
                     break
 
@@ -110,7 +110,7 @@ def build_and_upload():
 
 
 def fail(message, *args):
-    print >> sys.stderr, 'Error:', message % args
+    print(sys.stderr, 'Error:', message % args)
     sys.exit(1)
 
 

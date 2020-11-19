@@ -19,7 +19,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Principal',
-    version='0.4.1',
+    version='0.4.2',
     url='https://github.com/armstead-inc/flask-principal.git',
     license='MIT',
     author='Ali Afshar',
